@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Edit note — SecureNotes{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 760px;">
+  <div class="card p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="mb-0">Edit note</h3>
+      <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light btn-sm">Back</a>
+    </div>
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input class="form-control" name="title" value="{{ note.title }}" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Content</label>
+        <textarea class="form-control" name="content" rows="10">{{ note.content }}</textarea>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary" type="submit">Save changes</button>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

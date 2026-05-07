@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Login — SecureNotes{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="card auth-card">
+    <h3 class="mb-1">Welcome back</h3>
+    <p class="text-muted mb-4">Sign in to your vault.</p>
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input class="form-control" name="username" autocomplete="username" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" name="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-primary w-100" type="submit">Login</button>
+    </form>
+    <p class="text-muted mt-3 mb-0 text-center">No account? <a href="{{ url_for('register') }}">Register</a></p>
+    <p class="text-muted mt-2 mb-0 text-center" style="font-size:.8rem;">Try demo / demo1234</p>
+  </div>
+</div>
+{% endblock %}
