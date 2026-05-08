@@ -7,11 +7,12 @@ WORKDIR /app
 # Copy requirements first
 COPY requirements.txt .
 
-#UPGRADE PIP/SETUPTOOLS/WHEEL
-RUN pip install --upgrade pip setuptools wheel
-
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade \
+	pip==25.0 \
+	setuptools==80.0.0 \
+	wheel==0.46.1 && \
+	pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
 COPY . .
