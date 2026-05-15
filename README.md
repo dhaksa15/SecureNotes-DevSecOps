@@ -1,35 +1,118 @@
-# SecureNotes
+# SecureNotes DevSecOps Security Pipeline
 
-Modern Flask notes app with a cybersecurity-inspired dark UI.
+SecureNotes is a Flask-based notes management application integrated with a DevSecOps CI/CD security pipeline. The project demonstrates containerization, automated vulnerability scanning, Dockerfile static analysis, and CI/CD security enforcement using Docker, GitHub Actions, Trivy, and Hadolint.
 
-## Run locally
+---
+
+## Technologies Used
+
+* Flask
+* SQLite
+* Docker
+* GitHub Actions
+* Trivy
+* Hadolint
+* Bootstrap
+
+---
+
+## System Architecture
+
+![Architecture Diagram](images/architecture.png)
+
+---
+
+## Features
+
+* User registration and login
+* Session-based authentication
+* Create, edit, and delete notes
+* Dockerized deployment
+* Automated CI/CD workflow
+* Dockerfile static analysis using Hadolint
+* Vulnerability scanning using Trivy
+* Automatic build failure on HIGH/CRITICAL vulnerabilities
+
+---
+
+## Project Structure
+
+```text
+SecureNotes-DevSecOps/
+│
+├── .github/
+│   └── workflows/
+│       └── security.yml
+│
+├── images/
+├── static/
+├── templates/
+├── app.py
+├── models.py
+├── requirements.txt
+├── Dockerfile
+├── .dockerignore
+└── README.md
+```
+
+---
+
+## Docker Setup
+
+### Build Docker Image
 
 ```bash
-python -m venv venv
-source venv/bin/activate    # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
+docker build -t securenotes .
 ```
 
-Open http://127.0.0.1:5000
+### Run Docker Container
 
-### Demo account
-- **Username:** `demo`
-- **Password:** `demo1234`
+```bash
+docker run -p 5000:5000 securenotes
+```
 
-## Structure
+Open:
+
+```text
+http://127.0.0.1:5000
 ```
-SecureNotes/
-├── app.py              # Routes & app factory
-├── models.py           # SQLAlchemy models (User, Note)
-├── requirements.txt
-├── static/
-│   └── css/style.css   # Dark cyber theme
-└── templates/
-    ├── base.html
-    ├── home.html
-    ├── login.html
-    ├── register.html
-    ├── dashboard.html
-    └── edit_note.html
-```
+
+---
+
+## CI/CD Security Pipeline
+
+The GitHub Actions workflow automatically:
+
+* Builds Docker images
+* Performs Dockerfile static analysis
+* Scans OS packages and dependencies
+* Fails builds on HIGH/CRITICAL vulnerabilities
+
+---
+
+## Trivy Vulnerability Scan
+
+![Trivy Results](images/trivy-results.png)
+
+---
+
+## Security Improvements Implemented
+
+* Pinned dependency versions
+* Improved Dockerfile structure
+* Added automated vulnerability scanning
+* Added CI/CD security enforcement
+* Reduced dependency vulnerabilities
+
+---
+
+## Learning Outcomes
+
+This project helped in understanding:
+
+* Docker containerization
+* CI/CD automation
+* DevSecOps workflow integration
+* Vulnerability management
+* Static security analysis
+* Container security best practices
