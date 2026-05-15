@@ -18,7 +18,7 @@ SecureNotes is a Flask-based notes management application integrated with a DevS
 
 ## System Architecture
 
-![Architecture Diagram](images/architecture.png)
+![Architecture Diagram](images/architecture.svg)
 
 ---
 
