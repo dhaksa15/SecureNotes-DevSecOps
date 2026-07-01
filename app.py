@@ -5,11 +5,10 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User, Note
 
-app = Flask(__name__)
-app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "change-me-in-production")
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///securenotes.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+from config import Config
 
+app = Flask(__name__)
+app.config.from_object(Config)
 db.init_app(app)
 
 
